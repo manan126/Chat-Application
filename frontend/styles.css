@@ -9,6 +9,24 @@ body {
     margin: 0 auto;
 }
 
+#auth-container {
+    text-align: center;
+}
+
+#auth-tabs {
+    margin-bottom: 20px;
+}
+
+#auth-tabs button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#auth-tabs button.active {
+    background-color: #ddd;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -22,12 +40,25 @@ input, button {
 
 #chat-container {
     display: flex;
-    height: 400px;
+    height: 600px;
+    border: 1px solid #ccc;
+}
+
+#sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ccc;
 }
 
 #user-list {
-    width: 200px;
-    border-right: 1px solid #ccc;
     overflow-y: auto;
 }
 
@@ -46,6 +77,7 @@ input, button {
 #chat-form {
     display: flex;
     padding: 10px;
+    border-top: 1px solid #ccc;
 }
 
 #chat-input {

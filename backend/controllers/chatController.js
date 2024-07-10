@@ -46,3 +46,23 @@ exports.getUsers = async (req, res) => {
     res.status(500).json({ message: 'Error fetching users', error: error.message });
   }
 };
+
+exports.searchUsers = async (req, res) => {
+  try {
+    const { query } = req.query;
+    const users = await User.find({
+      $and: [
+        { _id: { $ne: req.user.id } },
+        {
+          $or: [
+            { username: { $regex: query, $options: 'i' } },
+            { email: { $regex: query, $options: 'i' } }
+          ]
+        }
+      ]
+    }).select('-password');
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Error searching users', error: error.message });
+  }
+};
